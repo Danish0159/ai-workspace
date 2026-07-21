@@ -13,6 +13,22 @@ services:
     build: ./api
     ports:
       - "8000:8000"
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  worker:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.worker
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - redis
     restart: unless-stopped
     networks:
       - app-network
