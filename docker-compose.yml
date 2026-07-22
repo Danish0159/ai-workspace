@@ -15,6 +15,12 @@ services:
       - "8000:8000"
     environment:
       REDIS_URL: redis://redis:6379/0
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+    volumes:
+      - documents_data:/app/documents
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       - redis
     restart: unless-stopped
@@ -53,6 +59,7 @@ services:
 
 volumes:
   postgres_data:
+  documents_data:
 
 networks:
   app-network:

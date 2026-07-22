@@ -1,3 +1,13 @@
 fastapi
 uvicorn[standard]
 redis
+python-multipart
+python-dotenv
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-ollama
+langchain_openai
+langchain-community
+langgraph
+pypdf
+langchain-text-splitters
