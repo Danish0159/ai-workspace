@@ -2,6 +2,7 @@ fastapi
 uvicorn[standard]
 redis
 psutil
+prometheus_client
 python-multipart
 python-dotenv
 langchain>=0.3.0
